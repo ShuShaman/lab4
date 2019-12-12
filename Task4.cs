@@ -1,177 +1,138 @@
 ﻿//1) ----------------------------------------------------------------------------------------------
 private void set_mode(bool mod)
+
 {
-    if (mod == true)
-    {
-        label1.Enabled = true;
-        button1.Enabled = true;
-        button2.Enabled = true;
-        button3.Enabled = false;
-        button4.Enabled = false;
-    }
+    if (mod)
+        ModTrue();
     else
-    {
-        label1.Enabled = false;
-        button1.Enabled = false;
-        button2.Enabled = false;
-        button3.Enabled = true;
-        button4.Enabled = true;
-    }
+        ModFalse();
 }
 //2) ----------------------------------------------------------------------------------------------
 
- switch (driver.Status)
- {
- case ClientStatus.Unknown:
- return m_driverStatusNames[ClientStatus.Unknown];
- case ClientStatus.Free:
- return m_driverStatusNames[ClientStatus.Free];
- case ClientStatus.Busy:
- return m_driverStatusNames[ClientStatus.Busy];
- case ClientStatus.InWay:
- return m_driverStatusNames[ClientStatus.InWay];
- case ClientStatus.Work:
- return m_driverStatusNames[ClientStatus.Work];
- case ClientStatus.Break:
- return m_driverStatusNames[ClientStatus.Break];
- case ClientStatus.Alarm:
- return m_driverStatusNames[ClientStatus.Alarm];
- }
+return m_driverStatusNames[driver.Status];
 
 //3) ----------------------------------------------------------------------------------------------
 
 uint i;
-…
-if (i.ToString().Length == 1)
-{
-...
-}
+
 
 //4) ----------------------------------------------------------------------------------------------
-string destination = null;
+string destination = ;
 for (int i = 0; i< 13; i++)
  destination += source[i];
 
 //5) ----------------------------------------------------------------------------------------------
-Bool IsNumber(string str)
-{
-    return (str.Replace("0", "").Replace("1", "").Replace("2", "").Replace
-    ("3", "").Replace("4", "").Replace("5", "").Replace("6", "").Replace
-    ("7", "").Replace("8", "").Replace("9", "").Length == 0);
-}
+int result;
+return Int32.TryParse(str, out result);
 
 //6) ----------------------------------------------------------------------------------------------
-foreach (DirectoryInfo dir in dirs.GetDirectories())
+    void RefactoringFunctionForCheckDirectories()
 {
- //create folder{16}
- stream.Write(new byte[] { (byte) NetworkMessage.MakeDir }, 0, 1);
- stream.Read(new byte[1],0, 1);
-stream.Write(BitConverter.GetBytes(Encoding.UTF8.GetBytes(
-SubFolder.Replace('\\', '/') + dir.Name.Replace('\\', '/')).Length), 0, 4);
- stream.Write(Encoding.UTF8.GetBytes(SubFolder.Replace('\\', '/') +
- dir.Name.Replace('\\', '/')),0,
- Encoding.UTF8.GetBytes(SubFolder.Replace('\\', '/') +
- dir.Name.Replace('\\', '/')).Length);
- //send folder name
- stream.Read(new byte[1], 0, 1);//Ok
+    foreach (DirectoryInfo dir in dirs.GetDirectories())
+    {
+        CheckDirectory(dir);
+    }
+}
+void CheckDirectory(DirectoryInfo dir)
+{
+    CreateFolder();
+    SendFolderName();
 }
 
-//7) ----------------------------------------------------------------------------------------------
-String[] days = new String[7];
-for(int i = 0; i< 7; i++ ) {
- switch(i) {
- default:
- case 0:
- days[i] = "Monday";
- break;
- case 1:
- days[i] = "Tuesday";
- break;
- case 2:
- days[i] = "Wednesday";
- break;
- case 3:
- days[i] = "Thursday";
- break;
- case 4:
- days[i] = "Friday";
- break;
- case 5:
- days[i] = "Saturday";
- break;
- case 6:
- days[i] = "Sunday";
- break;
- }
+void CreateFolder()
+{
+    stream.Write(
+    new byte[] { (byte)NetworkMessage.MakeDir },
+    0, 1
+    );
+    stream.Read(
+    new byte[1],
+    0, 1
+    );
+    stream.Write(
+    BitConverter.GetBytes(
+    Encoding.UTF8.GetBytes(SubFolder.Replace('\\', '/') + dir.Name.Replace('\\', '/')).Length
+    ),
+    0, 4
+    );
+
+    stream.Write(
+    Encoding.UTF8.GetBytes(
+    SubFolder.Replace('\\', '/') +
+    dir.Name.Replace('\\', '/')
+    ),
+    0, Encoding.UTF8.GetBytes(
+    SubFolder.Replace('\\', '/') +
+    dir.Name.Replace('\\', '/')
+    ).Length
+    );
 }
+
+void SendFolderName()
+{
+    stream.Read(new byte[1], 0, 1);
+}
+
+
+
+//7) ----------------------------------------------------------------------------------------------
+String[] days = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
 
 //8) ----------------------------------------------------------------------------------------------
 DateTime dt = DateTime.Now;
-string h = dt.Hour.ToString().PadLeft(2, '0');
-string m = dt.Minute.ToString().PadLeft(2, '0');
-string s = dt.Second.ToString().PadLeft(2, '0');
-Console.WriteLine("--"+h+":"+m+":"+s+"--");
-
+char pad = '0';
+Console.WriteLine("--" + dt.Hour.ToString().PadLeft(2, pad) + ":" + dt.Minute.ToString().PadLeft(2, pad) + ":" + dt.Second.ToString().PadLeft(2, pad) + "--");
+   
 //9) ----------------------------------------------------------------------------------------------
- return ((int)(Counter / 2) != Counter / 2.00 && Counter != 0);
+ return (Counter % 2== 0);
 
 //10) ----------------------------------------------------------------------------------------------
 if (Connected == 0))
 {
 rez = setup();
-fl_end = true; // выход
-}
-else
-fl_end = true;
+    return;
+    //11
+    List<int> arr = new List<int>();
+
+    for (int i = 0; i<arr.Count; i++)
+    {
+        if (arr[i] > 100)
+        {
+            arr.Remove(arr[i--]);
+        }
+    }
 
 //11) ----------------------------------------------------------------------------------------------
 List<int> arr = new List<int>();
-List<int> tmpArr = new List<int>();
-for (int i = 0; i<arr.Count; i++)
-{
-if (arr[i] > 100)
-{
-}
-else
-tmpArr.Add(arr[i]);
-}
-arr = tmpArr;
-
+    for (int i = 0; i<arr.Count; i++)
+    {
+        if (arr[i] > 100)
+        {
+            arr.Remove(arr[i--]);
+        }
+    }
 //12) ----------------------------------------------------------------------------------------------
 var ids = form.Keys;
-if(ids.Length == 0 || ids.Length > 1) { throw Exception;}
+if(ids.Length != 1) { throw Exception;}
 
 //13) ----------------------------------------------------------------------------------------------
-//Use the Name field
 string[] nameParts = customer.Name.Split(' ');
 string firstName = nameParts[0];
-string lastName = customer.Name.Replace(nameParts[0], "").TrimStart(' ');
+string lastName = nameParts[1];
 
 //14) ----------------------------------------------------------------------------------------------
-foreach (string id in sourceIDs.Split(new char[] { ',' },
-StringSplitOptions.RemoveEmptyEntries))
- {
- sourceId = Convert.ToInt32(id);
- break;
- }
+string[] tmp = sourceIDs.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries));
+sourceID = Int32.Parse(tmp[0]);
 
 //15) ----------------------------------------------------------------------------------------------
 public string generateEMail()
 {
     string res;
-    int i = PersonName.IndexOf(" ");
-    char[] str1 = new char[i];
-    PersonName.CopyTo(0, str1, 0, i);
-    string str11 = new string(str1);
-    char[] str2 = new char[PersonName.Length - i - 1];
-    PersonName.CopyTo(i + 1, str2, 0, PersonName.Length - i - 1);
-    string str22 = new string(str2);
-    res = str11.ToString() + "." + str22.ToString();
+    res = PersonName;
+    res = res.Replace(' ', '.');
     if (res.Length > 20)
     {
-        str1 = new char[20];
-        res.CopyTo(0, str1, 0, 20);
-        res = new string(str1);
+        res = res.Substring(0, 19);
     }
     res += "@domain.ua";
     return res;
@@ -180,10 +141,10 @@ public string generateEMail()
 //16) ----------------------------------------------------------------------------------------------
 foreach (string id in sourceIDs.Split(new char[] { ',' },
 StringSplitOptions.RemoveEmptyEntries))
- {
- sourceId = Convert.ToInt32(id);
- break;
- }
+{
+    sourceId = Convert.ToInt32(id);
+    break;
+}
 
 //17) ----------------------------------------------------------------------------------------------
 string GetTextDiv2(string text)
@@ -198,107 +159,55 @@ string GetTextDiv2(string text)
     return "&nbsp" + text.Substring(0, mid) + " <br/>&nbsp" +
    text.Substring(mid, text.Length - mid);
 }
+Шураева 7
+Дарья 5000
+mid 5000
 
 //18) ----------------------------------------------------------------------------------------------
 private static readonly char SPECIFIER = "$"[0];
 private static readonly char DELIMITER = ":"[0];
-private static readonly char[] DELIMITER_ARRAY = new char[1] { DELIMITER };
+private static readonly char[] DELIMITER_ARRAY = { DELIMITER };
 
 //19) ----------------------------------------------------------------------------------------------
-string mailTo = ((Config.GetSetting("AdminNotifications_EmailAddress") == null) ||
-(Config.GetSetting("AdminNotifications_EmailAddress").Length <= 0)) ?
-Globals.GetHostPortalSettings().HostSettings["SMTPPassword"].ToString() :
-Config.GetSetting("AdminNotifications_EmailAddress");
+string mailTo = CreateMailto();
+
+string CreateMailto()
+{
+    if (MailtoCondition())
+    {
+        return Globals.GetHostPortalSettings().HostSettings["SMTPPassword"].ToString();
+    }
+    else
+    {
+        return Config.GetSetting("AdminNotifications_EmailAddress");
+    }
+}
+
+bool MailtoCondition()
+{
+    return (
+    (Config.GetSetting("AdminNotifications_EmailAddress") == null) ||
+    (Config.GetSetting("AdminNotifications_EmailAddress").Length <= 0)
+    );
+}
 
 //20) ----------------------------------------------------------------------------------------------
 public bool CheckPath(string path)
 {
-    int n;
-    n = 0;
+    int n = 0;
     //Проверяем наличие нужных папок;
-    if (Directory.Exists(path + "SCLAD"))
+    foreach (string neededDir in NEEDED_DIRECTORIES_ARRAY)
     {
-        n += 1;
+        if (Directory.Exists(path + neededDir)) n++;
     }
-    if (Directory.Exists(path + "REAL"))
-    {
-        n += 1;
-    }
-    if (Directory.Exists(path + "DOSTAVKA"))
-    {
-        n += 1;
-    }
+
     //Проверяем наличие нужных файлов
-    if (File.Exists(path + "analit.dbf"))
+    foreach (string neededFile in NEEDED_FILES_ARRAY)
     {
-        n += 1;
-    }
-    if (File.Exists(path + "partner.dbf"))
-    {
-        n += 1;
-    }
-    if (File.Exists(path + "SCLAD\\mdoc.dbf"))
-    {
-        n += 1;
-    }
-    if (File.Exists(path + "SCLAD\\mdoc.fpt"))
-    {
-        n += 1;
-    }
-    if (File.Exists(path + "SCLAD\\mdocm.dbf"))
-    {
-        n += 1;
-    }
-    if (File.Exists(path + "SCLAD\\mgrup.dbf"))
-    {
-        n += 1;
-    }
-    if (File.Exists(path + "SCLAD\\mlabel.dbf"))
-    {
-        n += 1;
-    }
-    if (File.Exists(path + "SCLAD\\mlabel.fpt"))
-    {
-        n += 1;
-    }
-    if (File.Exists(path + "REAL\\rbookm.dbf"))
-    {
-        n += 1;
-    }
-    if (File.Exists(path + "REAL\\rbook.dbf"))
-    {
-        n += 1;
-    }
-    if (File.Exists(path + "REAL\\rbook.fpt"))
-    {
-        n += 1;
-    }
-    if (File.Exists(path + "DOSTAVKA\\avt.dbf"))
-    {
-        n += 1;
-    }
-    if (File.Exists(path + "DOSTAVKA\\avtm.dbf"))
-    {
-        n += 1;
-    }
-    if (File.Exists(path + "DOSTAVKA\\avtm.fpt"))
-    {
-        n += 1;
-    }
-    if (File.Exists(path + "DOSTAVKA\\cargo.dbf"))
-    {
-        n += 1;
-    }
-    if (File.Exists(path + "DOSTAVKA\\cargom.dbf"))
-    {
-        n += 1;
-    }
-    if (File.Exists(path + "DOSTAVKA\\zamena.dbf"))
-    {
-        n += 1;
+        if (File.Exists(path + neededfile)) n++;
     }
     //Если указанная папка содержит все, что нужно
-    if (n == 20)
+    if (n == NEEDED_COUNT)
     {
         return true;
     }
@@ -307,17 +216,11 @@ public bool CheckPath(string path)
 
 //21) ----------------------------------------------------------------------------------------------
 txtContacts.Text = "";
-bool first = true;
 foreach (string contact in contacts)
 {
-if (first != true)
-txtContacts.Text += ";";
-first = false;
 txtContacts.Text += contact;
+txtContacts.Text += ";";
 }
 
 //22) ----------------------------------------------------------------------------------------------
-if (Game1.clou == true)
- {Game1.clou = false;}
- else
- { Game1.clou = true; }
+Game1.clou = !Game1.clou;
