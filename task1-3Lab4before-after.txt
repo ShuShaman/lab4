@@ -1,18 +1,24 @@
-после
+Выделение метода
 void PrintUserInfo(decimal amount)
  {
  PrintParentInfo(); PrintUserDetails(decimal amount); 
 } 
 void PrintUserDetails(decimal amount)
  { 
-Console.WriteLine(string.Format("имя: {0}", name); Console.WriteLine(string.Format("возраст: {0}", age); Console.WriteLine(string.Format("кол-во: {0}", amount);
+Console.WriteLine(string.Format("имя: {0}", name);
+ Console.WriteLine(string.Format("возраст: {0}", age);
+ Console.WriteLine(string.Format("кол-во: {0}", amount);
 }
-после
+
+
+Встраивание временной переменной
 int GetPoints()
  {
  return summ >= maxSumm ? decimal.One : decimal.Zero;
  }
-после 
+
+
+ Замена временной переменной вызовом метода
 return order.GetCost() > 1000;
 после (преобразуем выражение в метод)
 decimal MethodA()
@@ -32,7 +38,10 @@ decimal MethodB()
 {
  return amount * cost;
  }
-после 
+
+
+Удаление присвоений параметрам (лучше воспользоваться временной переменной)
+ Методы не должны менять значения входящих параметров, если это явно не указано
 int Discount(int amount, bool useDefaultDiscount, DateTime date)
  {
  int result = amount; 
@@ -42,7 +51,9 @@ if(amount == 0 && useDefaultDiscount)
  }
  return result;
  }
-после (помещаем результат выражения или его части во временную переменную)
+
+
+Введение поясняющей переменной (упрощается чтение и понимание кода)
 bool isLastFocusedColumn = VisualItems.ColumnCount == FocusedCell.X;
  bool altShiftPressed = (key == Keys.Alt | Keys.Shift);
  bool wasResized = resize > 0;
@@ -50,16 +61,25 @@ bool isLastFocusedColumn = VisualItems.ColumnCount == FocusedCell.X;
  { 
 // do something 
 }
+
+
+Декомпозиция условного оператора
 после (Выделяем методы из условия, части «then» и частей «else»)
 if (notSu'mmer(date)) charge = winterCharge(quantity); 
 else charge = summerCharge (quantity);
-после 
+
+
+Консолидация дублирующихся условных фрагментов
 if (isSpecialDealO) total = price * 0 95 else total = price * 0 98, send()
-после 
+
+
+ Консолидация условного выражения
 double disabilityAmount()
  { 
 if (isNotEligibleForDisabilityO) return 0 // вычислить сумму оплаты по нетрудоспособности
-после
+
+
+Удаление управляющего флага
 void checkSecunty(String[] people) 
 {
  boolean found = false for (int i=0 l < people length i++) { if (' found) { if (people[i] equals ( Don ))
@@ -67,7 +87,9 @@ void checkSecunty(String[] people)
  sendAlert() break > if (people[i] equals ( John ))
 { 
 sendAlertO found = true } } } }
-после
+
+
+Подъем поля, метода
 class Animal
 {
 public:
@@ -91,7 +113,9 @@ public:
 	void vote() override;
 	void getStatus() override;
 }
-после 
+
+
+Спуск поля, метода
 class Unit
 {
 public:
